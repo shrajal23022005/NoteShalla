@@ -1,29 +1,29 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  setTimeout(async () => {
-    if (!state.user) {
-      window.location.href = '/login.html';
-      return;
-    }
+  await checkAuth();
 
-    const welcomeEl = document.getElementById('welcome-user');
-    if (welcomeEl) {
-      welcomeEl.innerText = `Hello ${state.user.name}`;
-    }
+  if (!state.user) {
+    window.location.href = '/login.html';
+    return;
+  }
 
-    initTabs();
-    await loadDashboardStats();
-    await loadUploadedNotes();
+  const welcomeEl = document.getElementById('welcome-user');
+  if (welcomeEl) {
+    welcomeEl.innerText = `Hello ${state.user.name}`;
+  }
 
-    document.getElementById('add-funds-btn')?.addEventListener('click', () => {
-      document.getElementById('funds-modal').style.display = 'flex';
-    });
+  initTabs();
+  await loadDashboardStats();
+  await loadUploadedNotes();
 
-    document.getElementById('cancel-funds')?.addEventListener('click', () => {
-      document.getElementById('funds-modal').style.display = 'none';
-    });
+  document.getElementById('add-funds-btn')?.addEventListener('click', () => {
+    document.getElementById('funds-modal').style.display = 'flex';
+  });
 
-    document.getElementById('confirm-funds')?.addEventListener('click', addFunds);
-  }, 200);
+  document.getElementById('cancel-funds')?.addEventListener('click', () => {
+    document.getElementById('funds-modal').style.display = 'none';
+  });
+
+  document.getElementById('confirm-funds')?.addEventListener('click', addFunds);
 });
 
 function escapeHTML(value = '') {
