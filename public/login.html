@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noteshalla | Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar glass-panel" style="margin: 1rem 5%; border-radius: 12px;">
+        <a href="/" class="brand">Noteshalla</a>
+    </nav>
+
+    <div class="auth-container glass-panel">
+        <h2 style="color: var(--primary-color);">Welcome Back</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">
+            Don't have an account? <a href="/signup.html" style="color: var(--primary-color); font-weight: 600;">Sign up</a>
+        </p>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+<footer class="site-footer">
+    <p>© 2026 NoteShalla. Built by Shrajal Mishra.</p>
+</footer>
+</html>

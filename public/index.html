@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noteshalla | Academic Notes Marketplace</title>
+    <meta name="description" content="Share, buy, and sell academic notes.">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar glass-panel" style="margin: 1rem 5%; border-radius: 12px;">
+        <a href="/" class="brand">Noteshalla</a>
+        <div class="nav-links">
+            <span id="wallet-display" style="display: none; color: var(--success); font-weight: 700;">Wallet: $0.00</span>
+            <a href="/login.html" class="guest-only">Login</a>
+            <a href="/signup.html" class="btn btn-primary guest-only">Sign Up</a>
+            <a href="/dashboard.html" class="auth-only" style="display: none;">Dashboard</a>
+            <a href="#" id="logout-btn" class="auth-only" style="display: none;">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Unlock Your Academic Potential</h1>
+        <p>Buy premium notes from top students, or sell your own and start earning. High-quality study material at your fingertips.</p>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search by subject, title, or topic...">
+            <button class="btn" id="search-btn" style="background: linear-gradient(135deg, var(--secondary-color), #be185d); color: white; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);">Search</button>
+        </div>
+    </section>
+
+    <!-- Notes Grid -->
+    <h2 style="padding: 3rem 5% 1rem 5%; font-size: 2rem;">Latest Notes</h2>
+    <div class="notes-grid" id="home-notes-grid">
+        <!-- Managed by JS -->
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+<footer class="site-footer">
+    <p>© 2026 NoteShalla. Built by Shrajal Mishra.</p>
+</footer>
+</html>

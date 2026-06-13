@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noteshalla | Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .list-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar glass-panel" style="margin: 1rem 5%; border-radius: 12px;">
+        <a href="/" class="brand">Noteshalla</a>
+        <div class="nav-links">
+            <span id="wallet-display" style="display: none; color: var(--success); font-weight: 700;">Wallet: $0.00</span>
+            <a href="/" class="auth-only">Home</a>
+            <a href="#" id="logout-btn" class="auth-only">Logout</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <h3 id="welcome-user" style="margin-bottom: 1.5rem; text-align: center;">My Dashboard</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="tab-link active" data-target="profile-tab">Profile Summary</a></li>
+                <li><a href="#" class="tab-link" data-target="uploaded-tab">Uploaded Notes</a></li>
+                <li><a href="#" class="tab-link" data-target="purchased-tab">Purchased Notes</a></li>
+                <li><a href="#" class="tab-link" data-target="wishlist-tab">Wishlist</a></li>
+                <li><a href="#" class="tab-link" data-target="transactions-tab">Transactions</a></li>
+                <li style="margin-top: 2rem;"><a href="/upload.html" class="btn btn-primary" style="text-align: center; color: white;">+ Upload Note</a></li>
+                <li style="margin-top: 1rem;"><a href="#" id="add-funds-btn" class="btn btn-outline" style="text-align: center; font-size: 0.9rem;">Add Dummy Funds</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <main class="glass-panel" style="padding: 2rem;">
+            
+            <!-- Profile Tab -->
+            <div id="profile-tab" class="tab-content active">
+                <h2>Profile Summary</h2>
+                <div class="dashboard-stats" style="margin-top: 2rem;">
+                    <div class="stat-card glass-panel">
+                        <h3>Wallet Balance</h3>
+                        <div class="value" id="stat-wallet">$0.00</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <h3>Total Earnings</h3>
+                        <div class="value" id="stat-earnings">$0.00</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <h3>Uploaded</h3>
+                        <div class="value" id="stat-uploads">0</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <h3>Purchased</h3>
+                        <div class="value" id="stat-purchases">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uploaded Tab -->
+            <div id="uploaded-tab" class="tab-content">
+                <h2>Uploaded Notes</h2>
+                <div id="uploaded-list" style="margin-top: 1.5rem;"></div>
+            </div>
+
+            <!-- Purchased Tab -->
+            <div id="purchased-tab" class="tab-content">
+                <h2>Purchased Notes</h2>
+                <div id="purchased-list" style="margin-top: 1.5rem;"></div>
+            </div>
+
+            <!-- Wishlist Tab -->
+            <div id="wishlist-tab" class="tab-content">
+                <h2>My Wishlist</h2>
+                <div id="wishlist-list" style="margin-top: 1.5rem;"></div>
+            </div>
+
+            <!-- Transactions Tab -->
+            <div id="transactions-tab" class="tab-content">
+                <h2>Transaction History</h2>
+                <div style="overflow-x: auto; margin-top: 1.5rem;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--glass-border);">
+                                <th style="padding: 10px;">ID</th>
+                                <th style="padding: 10px;">Note</th>
+                                <th style="padding: 10px;">Type</th>
+                                <th style="padding: 10px;">Amount</th>
+                                <th style="padding: 10px;">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-list"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Dummy Funds Modal -->
+    <div id="funds-modal" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 2000; align-items:center; justify-content:center;">
+        <div class="glass-panel" style="padding: 2rem; width: 90%; max-width: 400px;">
+            <h3>Add Dummy Funds</h3>
+            <div class="form-group" style="margin-top: 1rem;">
+                <label>Amount ($)</label>
+                <input type="number" id="dummy-amount" class="form-control" value="100">
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button class="btn btn-primary" id="confirm-funds">Add</button>
+                <button class="btn btn-outline" id="cancel-funds">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+<footer class="site-footer">
+    <p>© 2026 NoteShalla. Built by Shrajal Mishra.</p>
+</footer>
+</html>
